@@ -11,4 +11,16 @@ describe('circular:', function() {
     expect(obj.b.a).to.eql('[Circular]');
     done();
   });
+  it('should stringify circular reference (ref function)', function(done) {
+    function ref(value) {
+      return value.toString();
+    }
+    var a = {undef: undefined, toString: function(){return '#a'}};
+    var b = {a: a}
+    a.b = b;
+    var str = JSON.stringify(a, circular(ref));
+    var obj = JSON.parse(str);
+    expect(obj.b.a).to.eql('#a');
+    done();
+  });
 })
