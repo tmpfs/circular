@@ -16,14 +16,12 @@ var str = JSON.stringify(obj, circular());
 If you prefer you can pass an alternative string to use:
 
 ```javascript
-var circular = require('circular');
 var str = JSON.stringify(obj, circular('#ref'));
 ```
 
 Or a function that returns a string:
 
 ```javascript
-var circular = require('circular');
 function ref(value){return '' + value};
 var str = JSON.stringify(obj, circular(ref));
 ```
