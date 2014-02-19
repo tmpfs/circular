@@ -8,9 +8,24 @@ Replace all circular references with the string `[Circular]`;
 
 ```javascript
 var circular = require('circular');
-var a = {}; var b = {a: a}; a.b = b;
-var str = JSON.stringify(a, circular());
-// => {"b":{"a":"[Circular]"}}
+var obj = {}; var child = {parent: obj}; obj.child = child;
+var str = JSON.stringify(obj, circular());
+// => {"child":{"parent":"[Circular]"}}
+```
+
+If you prefer you can pass an alternative string to use:
+
+```javascript
+var circular = require('circular');
+var str = JSON.stringify(obj, circular('#ref'));
+```
+
+Or a function that returns a string:
+
+```javascript
+var circular = require('circular');
+function ref(value){return '' + value};
+var str = JSON.stringify(obj, circular(ref));
 ```
 
 ## License
