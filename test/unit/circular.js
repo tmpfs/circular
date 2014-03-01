@@ -23,4 +23,13 @@ describe('circular:', function() {
     expect(obj.b.a).to.eql('#a');
     done();
   });
+  it('should stringify helper', function(done) {
+    var a = {undef: undefined};
+    var b = {a: a}
+    a.b = b;
+    var str = circular.stringify(a);
+    var obj = JSON.parse(str);
+    expect(obj.b.a).to.eql('[Circular]');
+    done();
+  });
 })

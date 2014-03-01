@@ -1,4 +1,4 @@
-module.exports = function circular(ref) {
+function circular(ref) {
   ref = ref || '[Circular]';
   var seen = [];
   return function (key, val) {
@@ -13,3 +13,10 @@ module.exports = function circular(ref) {
     return val;
   };
 }
+
+function stringify(obj, indent, ref) {
+  return JSON.stringify(obj, circular(ref), indent);
+}
+
+module.exports = circular;
+module.exports.stringify = stringify;
