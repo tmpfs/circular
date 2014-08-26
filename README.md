@@ -25,6 +25,11 @@ Or a function that returns a string:
 function ref(value){return '' + value};
 var str = JSON.stringify(obj, circular(ref));
 ```
+As of version `1.0.4` you can also pass an additional boolean that will convert function references to strings, useful for converting javascript modules to `couchdb` design documents.
+
+```javascript
+var str = JSON.stringify(obj, circular(null, true));
+```
 
 ## License
 
