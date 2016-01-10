@@ -1,21 +1,16 @@
 {
   "name": "circular",
   "version": "1.0.5",
-  "description": "Tiny utility to safely stringify objects with circular references",
+  "description": "Utility to safely stringify objects with circular references",
   "author": "muji <noop@xpm.io>",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeformsystems/circular"
+    "url": "https://github.com/tmpfs/circular"
   },
   "bugs": {
-    "url": "https://github.com/freeformsystems/circular/issues"
+    "url": "https://github.com/tmpfs/circular/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/freeformsystems/circular/blob/master/LICENSE"
-    }
-  ],
   "keywords": [
     "json",
     "stringify",
@@ -23,15 +18,16 @@
     "circular reference"
   ],
   "devDependencies": {
-    "mocha": "~1.17.0",
-    "chai": "~1.8.1",
-    "istanbul": "~0.2.4"
+    "chai": "~3.4.1",
+    "coveralls": "~2.11.6",
+    "istanbul": "~0.4.1",
+    "mocha": "~2.3.4"
   },
   "engine": [
     "node >= 0.10.21"
   ],
   "scripts": {
-    "test": "istanbul cover _mocha -- -u bdd --recursive --bail -A test/unit/"
-  },
-  "config": {}
+    "test": "mocha -u bdd --recursive --bail -A test/spec",
+    "cover": "istanbul cover _mocha -- -u bdd --recursive --bail -A test/spec"
+  }
 }

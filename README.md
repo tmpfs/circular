@@ -1,6 +1,6 @@
 # Circular
 
-Tiny utility to safely stringify objects with circular references.
+Utility to safely stringify objects with circular references.
 
 ## Usage
 
