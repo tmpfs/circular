@@ -1,5 +1,9 @@
 # Circular
 
+[![Build Status](https://travis-ci.org/tmpfs/circular.svg)](https://travis-ci.org/tmpfs/circular)
+[![npm version](http://img.shields.io/npm/v/circular.svg)](https://npmjs.org/package/circular)
+[![Coverage Status](https://coveralls.io/repos/tmpfs/circular/badge.svg?branch=master&service=github&v=1)](https://coveralls.io/github/tmpfs/circular?branch=master)
+
 Utility to safely stringify objects with circular references.
 
 ## Usage
